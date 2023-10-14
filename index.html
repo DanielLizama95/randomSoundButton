@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Sound button</title>
+  </head>
+  <body>
+    <div class="container">
+      <button id="sound-button" onclick="makeItSound()">Click Me</button>
+    </div>
+
+    <script>
+      const button = document.getElementById("sound-button");
+      let audio;
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      const audioArray = [
+        "https://audio.jukehost.co.uk/81avvBRveh4ldYEdXb0xt3bBUxCR38aA",
+
+        "https://audio.jukehost.co.uk/YrEkJLG0q6e9HHGNsi8RjuoIpNhixtZf",
+
+        "https://audio.jukehost.co.uk/zMmuHVIFAEzvohFErY5PRsqfRASus49E",
+
+        "https://audio.jukehost.co.uk/1dzhkHv3xzFy1pee4BrTEenzARK2ovtd",
+
+        "https://audio.jukehost.co.uk/sl3orqW94CBLHjN0uTNvsRT2u7hzgOT1",
+
+        "https://audio.jukehost.co.uk/cunRsta75IFKfMCX2tasw9ktpnHBbOl2",
+
+        "https://audio.jukehost.co.uk/RCq4WBoEs9mA43aJe4PrlWSOrCSBKiWS",
+
+        "https://audio.jukehost.co.uk/lMkOoQ7Mylw4yqLqvDpwjnPsKjaos3fY",
+
+        "https://audio.jukehost.co.uk/ydEXkGyjQhrcdVGZkkFC5tupNzGwumc7",
+      ];
+
+      function makeItSound() {
+        if (audio && !audio.paused) {
+          audio.pause(); // Pausa el audio actual si se está reproduciendo
+        }
+        const randomIndex = getRandomInt(audioArray.length);
+        audio = new Audio(audioArray[randomIndex]);
+        audio.play();
+      }
+    </script>
+    <style>
+
+        body{
+            background-color: cadetblue;
+        }
+
+      .container {
+        display: flex;
+        place-content: center;
+        margin-top: 40vh;
+      }
+
+      button {
+        background-color: rebeccapurple;
+        color: white;
+        font-size: 2rem;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      button:hover {
+        background-color: hsl(270, 50%, 30%);
+        transform: scale(1.1);
+        transition: transform 300ms linear;
+      }
+
+      button:active {
+        border-color: teal;
+      }
+    </style>
+  </body>
+</html>
